@@ -9,9 +9,7 @@
  * splitFirstAndLastNames('John Smith') => ['John', 'Smith']
  */
 
-const splitFirstAndLastNames = (str) => {
-  return str.split(' ');
-}
+const splitFirstAndLastNames = (str) => str.split(' ');
 
 
 /** =========================
@@ -20,9 +18,7 @@ const splitFirstAndLastNames = (str) => {
  * personAge({ id: 1, name: 'Someone', age: 32}) => 32
  */
 
-const personAge = (personObject) => {
-  return personObject.age;
-}
+const personAge = (personObject) => personObject.age;
 
 
 /** =========================
@@ -32,9 +28,7 @@ const personAge = (personObject) => {
  * isNameInArray(['Jon', 'Michael', 'Andrey'], 'James') => false;
  */
 
-const isNameInArray = (arr, name) => {
-  return arr.includes(name);
-}
+const isNameInArray = (arr, name) => arr.includes(name); 
 
 
 /** =========================
@@ -44,15 +38,23 @@ const isNameInArray = (arr, name) => {
  * !!! Hint: There are two functions to refactor !!!
  */
 
-const logSecondsUpToMax = (max) => {
-  let i = 0;
-  const timer = setInterval(function() {
-    if (i < max) {
-      console.log(++i);
-    } else {
-      clearInterval(timer);
+const logTimer = countTo => {
+  for (let i = 1; i <= countTo; i++) {
+    console.log(i);
+  }
+}
+
+const logSecondsUpToMax = () => {
+  let counter = 1;
+  const intervalId = setInterval(() => {
+    console.log(counter);
+    counter++;
+    if (counter > 10) {
+      counter = 1;
     }
   }, 1000);
+  
+  setTimeout(() => clearInterval(intervalId), 10000);
 }
 
 
